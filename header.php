@@ -87,14 +87,29 @@
 						</div>
 					</div>
 				</div>
+                <?php
+                    
+                    
+                ?>
 				<div class='col-sm-8'>
 					<div class='shop-menu pull-right'>
 						<ul class='nav navbar-nav'>
-							<li><a href=''><i class='fa fa-user'></i> Account</a></li>
+                            <?php
+                                if ((isset($_REQUEST['id_name'])) && (!empty($_REQUEST['id_name'])))
+                                {
+                                       $ID_name = $_REQUEST['id_name'];
+	                                   echo "<li><a href=''><i class='fa fa-user'></i> Account:".$ID_name." </a></li>";
+                                }
+                                else
+                                {
+                                    echo "<li><a href='login.php'><i class='fa fa-user'></i> Login </a></li>";
+                                }
+                            ?>
 							<li><a href=''><i class='fa fa-star'></i> Wishlist</a></li>
 							<li><a href='checkout.php'><i class='fa fa-crosshairs'></i> Checkout</a></li>
 							<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Cart</a></li>
-							<li><a href='login.php' class='active'><i class='fa fa-lock'></i> Login</a></li>
+                            
+							
 						</ul>
 					</div>
 				</div>
@@ -123,7 +138,6 @@
 									<li><a href='product-details.php'>Product Details</a></li> 
 									<li><a href='checkout.php'>Checkout</a></li> 
 									<li><a href='cart.php'>Cart</a></li> 
-									<li><a href='login.php' class='active'>Login</a></li> 
 								</ul>
 							</li> 
 							<li><a href='contact-us.php'>Contact</a></li>
