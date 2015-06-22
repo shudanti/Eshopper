@@ -1,5 +1,6 @@
 <?php
     include("header.php");
+    
 ?>
 <body>
 	<section id='cart_items'>
