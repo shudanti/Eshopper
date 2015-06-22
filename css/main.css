@@ -850,7 +850,9 @@ h2.title {
 	overflow: hidden;
 	margin-bottom:30px;
 }
-
+.product-image-wrapper:hover{
+	border:1px solid #FF8080;
+}
 .single-products {
   position: relative;
 }
