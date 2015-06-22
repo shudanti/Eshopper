@@ -20,8 +20,6 @@
     $btsubmit=$_REQUEST['btsubmit'];
     if(isset($_POST['btsubmit']))
     {
-        echo $password;
-        
         if($password != $repassword)
         {
             echo "<script>alert('Confirm password not true')</script>";
@@ -31,6 +29,7 @@
             if((isset($_REQUEST['pass'])) && (!empty($_REQUEST['pass'])))
             {
                 $sel=mysql_query("update users set password = N'$password' where name = '$id_name' ");
+                echo "<script>alert('Change password complete')</script>";
             }
         }
         if($email != $id_email)

@@ -15,7 +15,6 @@ if($arr['name']!=$r_name)
   {
    if(mysql_query("insert into users values(N'$r_name',N'$r_password',N'$r_email')"))
 	   {  
-	       
 	       echo "<script>alert('New users created successfully')</script>";
 	   }
 	 }
@@ -44,6 +43,9 @@ if($arr['name']==$name)
         $_SESSION['id_address'] = $arr['address'];
         $_SESSION['id_city'] = $arr['city'];
         echo "<script>alert('Users login successfully')</script>";
+        
+        header( "Location: index.php" );
+        exit;
 	 }
 else 
 {
