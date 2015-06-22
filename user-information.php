@@ -12,9 +12,11 @@
     $email=$_REQUEST['email'];
     $password=$_REQUEST['pass'];
     $repassword=$_REQUEST['repass'];
+    $realname=$_REQUEST['realname'];
     $phone=$_REQUEST['phone'];
     $address=$_REQUEST['address'];
     $city=$_REQUEST['city'];
+    
     $btsubmit=$_REQUEST['btsubmit'];
     if(isset($_POST['btsubmit']))
     {
@@ -28,32 +30,46 @@
         {
             if((isset($_REQUEST['pass'])) && (!empty($_REQUEST['pass'])))
             {
-                $sel=mysql_query("update users set password = '$password' where name = '$id_name' ");
+                $sel=mysql_query("update users set password = N'$password' where name = '$id_name' ");
             }
         }
         if($email != $id_email)
         {
 
-            $sel=mysql_query("update users set email = '$email' where name = '$id_name' ");
+            $sel=mysql_query("update users set email = N'$email' where name = '$id_name' ");
+            $_SESSION['id_email'] = $email;
+            $id_email = $email;
+        }
+        if($realname != $id_realname)
+        {
+            
+            $sel=mysql_query("update users set realname = N'$realname' where name = '$id_name' ");
+            $_SESSION['id_realname'] = $realname;
+            $id_realname = $realname;
 
         }
         if($phone != $id_phone)
         {
-
-            $sel=mysql_query("update users set phone = '$phone' where name = '$id_name' ");
+            
+            $sel=mysql_query("update users set phone = N'$phone' where name = '$id_name' ");
+            $_SESSION['id_phone'] = $phone;
+            $id_phone = $phone;
 
         }
+        
         if($address != $id_address)
         {
 
-            $sel=mysql_query("update users set address = '$address' where name = '$id_name' ");
-
+            $sel=mysql_query("update users set address = N'$address' where name = '$id_name' ");
+            $_SESSION['id_address'] = $address;
+            $id_address = $address;
         }
         if($city != $id_city)
         {
 
-            $sel=mysql_query("update users set city = '$city' where name = '$id_name' ");
-
+            $sel=mysql_query("update users set city = N'$city' where name = '$id_name' ");
+            $_SESSION['id_city'] = $city;
+            $id_city = $city;
         }
         
     }

@@ -8,12 +8,12 @@ $r_btsubmit=$_REQUEST['r_btsubmit'];
 if(isset($_POST['r_btsubmit']))
 {
 
-$sel=mysql_query("select name from users where name = '$r_name' ");
+$sel=mysql_query("select name from users where name = N'$r_name' ");
 $arr=mysql_fetch_array($sel);
 
 if($arr['name']!=$r_name)
   {
-   if(mysql_query("insert into users values('$r_name','$r_password','$r_email')"))
+   if(mysql_query("insert into users values(N'$r_name',N'$r_password',N'$r_email')"))
 	   {  
 	       
 	       echo "<script>alert('New users created successfully')</script>";
@@ -30,8 +30,8 @@ $password=$_REQUEST['password'];
 $btsubmit=$_REQUEST['btsubmit'];
 if(isset($_POST['btsubmit']))
 {
-mysql_query ("set character_set_results='utf8'");
-$sel=mysql_query("select * from users where name = '$name' and password = '$password' ");
+
+$sel=mysql_query("select * from users where name = N'$name' and password = '$password' ");
 $arr=mysql_fetch_array($sel);
 
 if($arr['name']==$name)
