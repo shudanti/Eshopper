@@ -71,6 +71,7 @@ else
 								<input name="keep_sign_in" type='checkbox' class='checkbox'> 
 								Keep me signed in
 							</span>
+                            <a href="sendemail.php" style="float: right">Forgot</a>
 							<button name="btsubmit" type='submit' class='btn btn-default'>Login</button>
 						</form>
 					</div><!--/login form-->
