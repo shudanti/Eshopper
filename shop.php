@@ -60,7 +60,7 @@
                                 }
                                 else 
                                 {
-                                    $imax = $arrlength/12 + 1;
+                                    $imax = ($arrlength - $arrlength%12)/12 + 1;
                                 }
                                 $ci = $_REQUEST["i"];
                                 for($x = ($ci-1)*9 ; $x < $arrlength and $x < $ci*9; $x++) {
@@ -110,9 +110,9 @@
                                 echo "<li><a href='?i=".$i."''>".$i."</a></li>";
                             }
                         }
-                        if($ci == $imax)
+                        if($ci >= $imax)
                         {
-                            echo "<li><a href='?i=".$ci."''>&raquo;</a></li>";
+                            echo "<li><a href='?i=".$imax."''>&raquo;</a></li>";
                         }
                         else 
                         {
