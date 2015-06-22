@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='description' content=''>
-    <meta name='author' content=''>
-    <title>Checkout | E-Shopper</title>
-    <link href='css/bootstrap.min.css' rel='stylesheet'>
-    <link href='css/font-awesome.min.css' rel='stylesheet'>
-    <link href='css/prettyPhoto.css' rel='stylesheet'>
-    <link href='css/price-range.css' rel='stylesheet'>
-    <link href='css/animate.css' rel='stylesheet'>
-	<link href='css/main.css' rel='stylesheet'>
-	<link href='css/responsive.css' rel='stylesheet'>
-    <!--[if lt IE 9]>
-    <script src='js/html5shiv.js'></script>
-    <script src='js/respond.min.js'></script>
-    <![endif]-->       
-    <link rel='shortcut icon' href='images/ico/favicon.ico'>
-    <link rel='apple-touch-icon-precomposed' sizes='144x144' href='images/ico/apple-touch-icon-144-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' sizes='114x114' href='images/ico/apple-touch-icon-114-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' sizes='72x72' href='images/ico/apple-touch-icon-72-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' href='images/ico/apple-touch-icon-57-precomposed.png'>
-</head><!--/head-->
-
+<?php
+    include("header.php");
+?>
 <body>
-	<?php
-        include("header.php");
-    ?>
-
 	<section id='cart_items'>
 		<div class='container'>
 			<div class='breadcrumbs'>
@@ -37,25 +10,6 @@
 				  <li class='active'>Check out</li>
 				</ol>
 			</div><!--/breadcrums-->
-
-			<div class='step-one'>
-				<h2 class='heading'>Step1</h2>
-			</div>
-			<div class='checkout-options'>
-				<h3>New User</h3>
-				<p>Checkout options</p>
-				<ul class='nav'>
-					<li>
-						<label><input type='checkbox'> Register Account</label>
-					</li>
-					<li>
-						<label><input type='checkbox'> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=''><i class='fa fa-times'></i>Cancel</a>
-					</li>
-				</ul>
-			</div><!--/checkout-options-->
 
 			<div class='register-req'>
 				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
@@ -67,13 +21,13 @@
 						<div class='shopper-info'>
 							<p>Shopper Information</p>
 							<form>
-								<input type='text' placeholder='Display Name'>
-								<input type='text' placeholder='User Name'>
-								<input type='password' placeholder='Password'>
-								<input type='password' placeholder='Confirm password'>
+								<input type='text' placeholder='User Name' disabled>
+            					<input type='email' placeholder='Email' disabled>
+            					<input type='text' placeholder='Phone' disabled>
+                                <input type='text' placeholder='Address' disabled>
 							</form>
-							<a class='btn btn-primary' href=''>Get Quotes</a>
-							<a class='btn btn-primary' href=''>Continue</a>
+							
+							<a target="_blank" class="btn btn-primary" href="https://www.nganluong.vn/button_payment.php?receiver=shudanti@gmail.com&product_name=12&price=15000&return_url=index.php&comments=(Ghi chú v? don hàng)"  >Pay</a> 
 						</div>
 					</div>
 					<div class='col-sm-5 clearfix'>
@@ -81,45 +35,17 @@
 							<p>Bill To</p>
 							<div class='form-one'>
 								<form>
-									<input type='text' placeholder='Company Name'>
+									<input type='text' placeholder='Real Name' alt="Real Name">
 									<input type='text' placeholder='Email*'>
-									<input type='text' placeholder='Title'>
-									<input type='text' placeholder='First Name *'>
-									<input type='text' placeholder='Middle Name'>
-									<input type='text' placeholder='Last Name *'>
-									<input type='text' placeholder='Address 1 *'>
-									<input type='text' placeholder='Address 2'>
+									<input type='text' placeholder='Phone'>
+									
 								</form>
 							</div>
 							<div class='form-two'>
 								<form>
-									<input type='text' placeholder='Zip / Postal Code *'>
-									<select>
-										<option>-- Country --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
+									<input type='text' placeholder='Address*'>
+									<input type='text' placeholder='City'>
 									<input type='password' placeholder='Confirm password'>
-									<input type='text' placeholder='Phone *'>
-									<input type='text' placeholder='Mobile Phone'>
-									<input type='text' placeholder='Fax'>
 								</form>
 							</div>
 						</div>

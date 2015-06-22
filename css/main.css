@@ -7,7 +7,7 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   background:;
   position: relative;
   font-weight:400px;
@@ -1902,10 +1902,10 @@ h2.title {
 }
 
 
-.shopper-info > form > input, 
-.form-two > form > select, 
-.form-two > form > input, 
-.form-one > form > input {
+.shopper-info  > input, 
+.form-two > select, 
+.form-two  > input, 
+.form-one  > input {
   background:#F0F0E9;
   border: 0 none;
   margin-bottom:10px;
@@ -1915,7 +1915,8 @@ h2.title {
 }
 
 .form-two > form > select {
-  padding:10px 5px
+  padding:10px 5px;
+  font-family: 'Times New Roman', sans-serif;
 }
 
 .form-two {
@@ -2523,4 +2524,12 @@ h2.title {
   color: #FE980F;
 }
 
-
+.button {
+  background: #FE980F;
+  border: medium none;
+  border-radius: 0;
+  color: #FFFFFF;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  padding: 6px 25px;
+}

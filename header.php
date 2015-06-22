@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -95,10 +97,12 @@
 					<div class='shop-menu pull-right'>
 						<ul class='nav navbar-nav'>
                             <?php
-                                if ((isset($_REQUEST['id_name'])) && (!empty($_REQUEST['id_name'])))
+                                session_start();
+                                if ((isset($_SESSION['id_name'])) && (!empty($_SESSION['id_name'])))
                                 {
-                                       $ID_name = $_REQUEST['id_name'];
-	                                   echo "<li><a href=''><i class='fa fa-user'></i> Account:".$ID_name." </a></li>";
+                                       
+                                       $ID_name = $_SESSION['id_name'];
+	                                   echo "<li><a href='user-information.php'><i class='fa fa-user'></i> Account: ".$ID_name." </a></li>";
                                 }
                                 else
                                 {
@@ -108,6 +112,19 @@
 							<li><a href=''><i class='fa fa-star'></i> Wishlist</a></li>
 							<li><a href='checkout.php'><i class='fa fa-crosshairs'></i> Checkout</a></li>
 							<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Cart</a></li>
+                            <?php
+                            if ((isset($_SESSION['id_name'])) && (!empty($_SESSION['id_name'])))
+                                {
+                                    echo "<li><a href='index.php' onclick='logout();'><i class='fa fa-lock'></i> Logout</a></li>";
+                                }
+                            ?>
+                            <script type="text/javascript">
+                            function logout() {
+                                $.get("logout.php");
+                                return false;
+                            }
+                            </script>
+                            
                             
 							
 						</ul>

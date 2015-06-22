@@ -27,13 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `item` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT ,
   `Name` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
-  `category` text NOT NULL
+  `category` text NOT NULL,
+  PRIMARY KEY (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+ALTER TABLE item AUTO_INCREMENT=1;
 --
 -- Dumping data for table `item`
 --
@@ -64,8 +65,6 @@ INSERT INTO `item` (`ID`, `Name`, `price`, `image`, `category`) VALUES
 --
 -- Indexes for table `item`
 --
-ALTER TABLE `item`
-  ADD PRIMARY KEY (`ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -30,14 +30,19 @@ $password=$_REQUEST['password'];
 $btsubmit=$_REQUEST['btsubmit'];
 if(isset($_POST['btsubmit']))
 {
-
+mysql_query ("set character_set_results='utf8'");
 $sel=mysql_query("select * from users where name = '$name' and password = '$password' ");
 $arr=mysql_fetch_array($sel);
 
 if($arr['name']==$name)
   {
         session_start();
-        $_REQUEST['id_name'] = $name;
+        $_SESSION['id_name'] = $arr['name'];
+        $_SESSION['id_email'] = $arr['email'];
+        $_SESSION['id_phone'] = $arr['phone'];
+        $_SESSION['id_realname'] = $arr['realname'];
+        $_SESSION['id_address'] = $arr['address'];
+        $_SESSION['id_city'] = $arr['city'];
         echo "<script>alert('Users login successfully')</script>";
 	 }
 else 
@@ -47,37 +52,12 @@ else
 
 }
 ?>
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='description' content=''>
-    <meta name='author' content=''>
-    <title>Login | E-Shopper</title>
-    <link href='css/bootstrap.min.css' rel='stylesheet'>
-    <link href='css/font-awesome.min.css' rel='stylesheet'>
-    <link href='css/prettyPhoto.css' rel='stylesheet'>
-    <link href='css/price-range.css' rel='stylesheet'>
-    <link href='css/animate.css' rel='stylesheet'>
-	<link href='css/main.css' rel='stylesheet'>
-	<link href='css/responsive.css' rel='stylesheet'>
-    <!--[if lt IE 9]>
-    <script src='js/html5shiv.js'></script>
-    <script src='js/respond.min.js'></script>
-    <![endif]-->       
-    <link rel='shortcut icon' href='images/ico/favicon.ico'>
-    <link rel='apple-touch-icon-precomposed' sizes='144x144' href='images/ico/apple-touch-icon-144-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' sizes='114x114' href='images/ico/apple-touch-icon-114-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' sizes='72x72' href='images/ico/apple-touch-icon-72-precomposed.png'>
-    <link rel='apple-touch-icon-precomposed' href='images/ico/apple-touch-icon-57-precomposed.png'>
-</head><!--/head-->
 
-<body>
 	
-	<?php
-        include("header.php");
-    ?>
+<?php
+    include("header.php");
+?>
+<body>
 	<section id='form'><!--form-->
 		<div class='container'>
 			<div class='row'>
@@ -128,4 +108,3 @@ else
     <script src='js/jquery.prettyPhoto.js'></script>
     <script src='js/main.js'></script>
 </body>
-</html>

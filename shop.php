@@ -38,8 +38,10 @@
 									<div class='product-image-wrapper'>
 										<div class='single-products'>
 												<div class='productinfo text-center'>
-													<img src=".mysql_result($sel,$x,"image")." alt='' />
-													<h2>".mysql_result($sel,$x,"price")."$</h2>
+                                                    <a href='product-details.php?index=".mysql_result($sel,$x,"ID")."' >
+													   <img src=".mysql_result($sel,$x,"image")." alt='' />
+													</a>
+                                                    <h2>".mysql_result($sel,$x,"price")."$</h2>
 													<p>".mysql_result($sel,$x,"Name")."</p>
 													<a href='#' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>
 												</div>
