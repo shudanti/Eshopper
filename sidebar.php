@@ -11,7 +11,7 @@
 					echo "
 						<div class='panel panel-default'>
 							<div class='panel-heading'>
-								<h4 class='panel-title'><a href='#'>".$arr["Name"]."</a></h4>
+								<h4 class='panel-title'><a href='shop.php?cat=".$arr["Name"]."&i=1'>".$arr["Name"]."</a></h4>
 							</div>
 						</div>
 					";	
