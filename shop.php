@@ -52,7 +52,6 @@
                                 $sel=mysql_query("select * from item");
                                 $n=1;
                                 
-							   
                                 $arrlength = mysql_numrows($sel);
                                 $imax = 1;
                                 if($arrlength% 9==0)
@@ -64,7 +63,7 @@
                                     $imax = $arrlength/12 + 1;
                                 }
                                 $ci = $_REQUEST["i"];
-                                for($x = $ci*9 -1; $x < $arrlength and $x < ($ci+1)*9; $x++) {
+                                for($x = ($ci-1)*9 ; $x < $arrlength and $x < $ci*9; $x++) {
                                     echo "
     							   <div class='col-sm-4'>
     									<div class='product-image-wrapper'>
@@ -95,11 +94,11 @@
 							   
 							   
 							  //$n++;
-
-								  
+                        ?>
+						</div><!--features_items-->		  
 						
-						
-						echo "<ul class='pagination'>";
+						<?php
+						echo "<div><ul class='pagination'>";
                         for($i = 1; $i<= $imax; $i++ )
                         {
                             if($ci==$i)
@@ -111,11 +110,18 @@
                                 echo "<li><a href='?i=".$i."''>".$i."</a></li>";
                             }
                         }
-                        echo "<li><a href='?i=".$i++."''>&raquo;</a></li>";
+                        if($ci == $imax)
+                        {
+                            echo "<li><a href='?i=".$ci."''>&raquo;</a></li>";
+                        }
+                        else 
+                        {
+                            echo "<li><a href='?i=".($ci+1)."''>&raquo;</a></li>";
+                        }
                             
-						echo "</ul>";
+						echo "</ul></div>";
                         ?>
-					</div><!--features_items-->
+					
 				</div>
 			</div>
 		</div>
