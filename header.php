@@ -110,7 +110,7 @@
 						<div class='search_box pull-right'>
 							<form action = 'search.php' method = 'GET'>
 								<input type='text' placeholder='Search'/ name='s'>
-								<select name='cat' width='100' style='width: 100px; height: 35px'>
+								<select name='cat' width='100' style='width: 100px; height: 35px;padding-top: 1px;'>
 									<option value=category>Category</option>		
 									<option value=item>Product</option>	
 								<select>

@@ -28,7 +28,7 @@
                                 <input type='text' placeholder='Address' disabled>
 							</form>
 							
-							<a target="_blank" class="btn btn-primary" href="https://www.nganluong.vn/button_payment.php?receiver=shudanti@gmail.com&product_name=12&price=15000&return_url=index.php&comments=(Ghi chú v? don hàng)"  >Pay</a> 
+							<a target="_blank" class="btn btn-primary" href="https://www.nganluong.vn/button_payment.php?receiver=shudanti@gmail.com&product_name=12&price=15000&return_url=index.php&comments=(Ghi chú v? don hàng)"  > Pay </a> 
 						</div>
 					</div>
 					<div class='col-sm-5 clearfix'>
