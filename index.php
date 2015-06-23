@@ -91,7 +91,7 @@
 														<a href='product-details.php?index=".$arr['ID']."'  >
 														   <img src=".$arr['image']." alt='' />
 														</a>
-														<h2>".$arr['price']."$</h2>
+														<h2>".$arr['price']." VND</h2>
 														<p>".$arr['Name']."</p>
 														<a href='product-details.php?index=".$arr['ID']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Detail</a>
 													</div>

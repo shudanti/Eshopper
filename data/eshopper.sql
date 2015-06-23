@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2015 at 10:55 PM
+-- Generation Time: Jun 24, 2015 at 01:14 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -23,6 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `name` varchar(15) NOT NULL,
+  `password` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`name`, `password`) VALUES
+('a', 'b'),
+('test', 'test');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -36,8 +55,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 --
 
 INSERT INTO `category` (`ID`, `Name`) VALUES
-(2, 'Apple'),
 (1, 'Samsung'),
+(2, 'Apple'),
 (3, 'Sony');
 
 -- --------------------------------------------------------
@@ -51,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `Name` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
-  `category` varchar(15) NOT NULL,
+  `category` int(11) NOT NULL,
   `Detail` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -60,23 +79,23 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 
 INSERT INTO `item` (`ID`, `Name`, `price`, `image`, `category`, `Detail`) VALUES
-(1, 'Easy Polo Black Edition', 56, 'images/shop/product1.jpg', 'Samsung', 'Điện thoại thần thánh đến từ Samsung'),
-(2, 'Easy-Care Stretch Poplin Shirt', 52, 'images/shop/product2.jpg', 'Samsung', ''),
-(3, 'Top Flite Mens Polo Style Shirt ', 40, 'images/shop/product3.jpg', 'Samsung', ''),
-(4, 'U.S. Polo Assn. Baby-Boys', 70, 'images/shop/product4.jpg', 'Samsung', ''),
-(5, 'Embroidered Leaves Vest Shirt', 57, 'images/shop/product5.jpg', 'Sony', ''),
-(6, 'Calvin Klein', 37, 'images/shop/product6.jpg', 'Sony', ''),
-(7, 'Kenneth Cole New York', 62, 'images/shop/product7.jpg', 'Sony', ''),
-(8, 'Wrangler Rigid Denim Work', 53, 'images/shop/product8.jpg', 'Sony', ''),
-(9, 'Lakin McKey Basic Denim Work', 38, 'images/shop/product9.jpg', 'Sony', ''),
-(10, 'Kenneth Cole Reaction', 44, 'images/shop/product10.jpg', 'Apple', ''),
-(11, 'Denim Cutout Bigshirt', 30, 'images/shop/product11.jpg', 'Apple', ''),
-(12, 'EXPRESS Mens Rocco Slim Fit', 72, 'images/shop/product12.jpg', 'Apple', ''),
-(13, 'Slim Fit Jeans', 58, 'images/shop/product13.jpg', 'Apple', ''),
-(14, 'Silver Jeans', 45, 'images/shop/product14.jpg', 'Apple', ''),
-(15, 'LRG Men''s RC', 56, 'images/shop/product15.jpg', 'Apple', ''),
-(16, 'LRG Men''s RC T', 76, 'images/shop/product16.jpg', 'Apple', ''),
-(17, 'Dickies Big & Tall Long', 80, 'images/shop/product17.jpg', 'Apple', '');
+(1, 'Easy Polo Black Edition', 56000, 'images/shop/product1.jpg', 1, 'Điện thoại thần thánh đến từ Samsung'),
+(2, 'Easy-Care Stretch Poplin Shirt', 52000, 'images/shop/product2.jpg', 1, ''),
+(3, 'Top Flite Mens Polo Style Shirt ', 40000, 'images/shop/product3.jpg', 2, ''),
+(4, 'U.S. Polo Assn. Baby-Boys', 70000, 'images/shop/product4.jpg', 1, ''),
+(5, 'Embroidered Leaves Vest Shirt', 57000, 'images/shop/product5.jpg', 2, ''),
+(6, 'Calvin Klein', 37000, 'images/shop/product6.jpg', 3, ''),
+(7, 'Kenneth Cole New York', 62000, 'images/shop/product7.jpg', 1, ''),
+(8, 'Wrangler Rigid Denim Work', 53000, 'images/shop/product8.jpg', 2, ''),
+(9, 'Lakin McKey Basic Denim Work', 38000, 'images/shop/product9.jpg', 2, ''),
+(10, 'Kenneth Cole Reaction', 44000, 'images/shop/product10.jpg', 2, ''),
+(11, 'Denim Cutout Bigshirt', 30000, 'images/shop/product11.jpg', 1, ''),
+(12, 'EXPRESS Mens Rocco Slim Fit', 72000, 'images/shop/product12.jpg', 3, ''),
+(13, 'Slim Fit Jeans', 58000, 'images/shop/product13.jpg', 2, ''),
+(14, 'Silver Jeans', 45000, 'images/shop/product14.jpg', 1, ''),
+(15, 'LRG Men''s RC', 56000, 'images/shop/product15.jpg', 3, ''),
+(16, 'LRG Men''s RC T', 76000, 'images/shop/product16.jpg', 2, ''),
+(17, 'Dickies Big & Tall Long', 80000, 'images/shop/product17.jpg', 1, '');
 
 -- --------------------------------------------------------
 
@@ -90,28 +109,34 @@ CREATE TABLE IF NOT EXISTS `oder` (
   `user` varchar(15) CHARACTER SET utf8 NOT NULL,
   `ispay` bit(1) NOT NULL,
   `sent` tinyint(1) NOT NULL,
-  `realname` varchar(15) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `city` varchar(15) DEFAULT NULL,
-  `comment` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+  `realname` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `phone` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `address` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `city` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
+  `comment` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `time` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `oder`
 --
 
-INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`, `realname`, `email`, `phone`, `address`, `city`, `comment`) VALUES
-(1, 15000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(2, 25000, 'David', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(16, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(17, 37, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(18, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(19, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(20, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(21, 56, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, ''),
-(22, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`, `realname`, `email`, `phone`, `address`, `city`, `comment`, `time`) VALUES
+(1, 15000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(2, 25000, 'David', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(16, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(17, 37, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(18, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(19, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(20, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(21, 56000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(22, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+(23, 361, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+(24, 150, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', 'gui tan nha', ''),
+(25, 496, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', '', 'Tue, 23 Jun 2015 22:30:30 +0000'),
+(26, 119, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', '', 'Tue, 23 Jun 2015 22:31:04 +0000'),
+(27, 56000, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -130,25 +155,13 @@ CREATE TABLE IF NOT EXISTS `oder_list_item` (
 --
 
 INSERT INTO `oder_list_item` (`ID_oder`, `ID_item`, `number`) VALUES
-(1, 2, 1),
-(1, 14, 2),
-(16, 1, 1),
-(16, 3, 1),
-(16, 5, 1),
-(17, 3, 1),
-(17, 6, 1),
-(17, 12, 1),
-(17, 14, 1),
-(17, 15, 1),
-(18, 1, 1),
-(19, 1, 1),
-(19, 11, 1),
-(19, 13, 1),
-(20, 1, 1),
-(20, 7, 2),
-(21, 5, 3),
-(21, 6, 2),
-(22, 1, 1);
+(25, 3, 2),
+(25, 4, 3),
+(25, 7, 1),
+(25, 12, 2),
+(26, 5, 1),
+(26, 7, 1),
+(27, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -182,10 +195,16 @@ INSERT INTO `users` (`name`, `password`, `email`, `phone`, `address`, `city`, `r
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`name`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`Name`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `item`
@@ -219,7 +238,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- Constraints for dumped tables
 --
@@ -228,7 +247,7 @@ ALTER TABLE `oder`
 -- Constraints for table `item`
 --
 ALTER TABLE `item`
-ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`Name`);
+ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `oder_list_item`

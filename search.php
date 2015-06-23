@@ -22,37 +22,54 @@
 								$s = "*";
 							if (strcmp($type,"exact") == 0)
 							{
-								if ($cat == 'category')
-									$sel=mysql_query("select * from item where category like '%$s%'");
-								else if ($cat == 'item')
+								if (strcmp($cat,"category") == 0)
+                                {
+                                    
+									$sel=mysql_query("select * from item,category where category.Name like '%$s%' and category.ID = item.category");
+								}
+                                else if ($cat == "item")
 									$sel=mysql_query("select * from item where Name like '%$s%'");
 							}
 							else if (strcmp($type,"any") == 0)
 							{
 								$array = explode(" ", $s);
-								$query = "select * from item where ";
+								
 								
 								if ($cat == 'item')
+                                {
+                                    $query = "select * from item where ";
 									foreach ($array as $value)
 										$query = $query . "Name like '%$value%' or ";	
+                                    $query = rtrim($query, "or ");
+                                }
 								else if($cat == 'category')
+                                {
+                                    $query = "select * from item,category where ";
 									foreach ($array as $value)
-										$query = $query . "category like '%$value%' or ";
-								$query = rtrim($query, "or ");
+										$query = $query . "category.Name like '%$value%' or ";
+    								$query = rtrim($query, "or ");
+                                    $query = $query . " and category.ID = item.category";
+                                }
 								$sel=mysql_query($query);	
 							}
 							else if (strcmp($type,"all") == 0)
 							{
 								$array = explode(" ", $s);
-								$query = "select * from item where ";
-								
 								if ($cat == 'item')
+                                {
+                                    $query = "select * from item where ";
 									foreach ($array as $value)
 										$query = $query . "Name like '%$value%' and ";	
+                                    $query = rtrim($query, "and ");
+                                }
 								else if($cat == 'category')
+                                {
+                                    $query = "select * from item,category where ";
 									foreach ($array as $value)
-										$query = $query . "category like '%$value%' and ";
-								$query = rtrim($query, "and ");
+										$query = $query . "category.Name like '%$value%' and ";
+    								$query = rtrim($query, "and ");
+                                    $query = $query . " and category.ID = item.category";
+                                }
 								$sel=mysql_query($query);	
 							}
 							
@@ -80,7 +97,7 @@
                                                     <a href='product-details.php?index=".mysql_result($sel,$x,"ID")."' >
 													   <img src=".mysql_result($sel,$x,"image")." alt='' />
 													</a>
-                                                    <h2>".mysql_result($sel,$x,"price")."$</h2>
+                                                    <h2>".mysql_result($sel,$x,"price")." VND</h2>
 													<p>".mysql_result($sel,$x,"Name")."</p>
 													<a href='product-details.php?index=".mysql_result($sel,$x,"ID")."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Detail</a>
 												</div>

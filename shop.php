@@ -44,7 +44,7 @@
                                                     <a href='product-details.php?index=".mysql_result($sel,$x,"ID")."' >
 													   <img src=".mysql_result($sel,$x,"image")." alt='' />
 													</a>
-                                                    <h2>".mysql_result($sel,$x,"price")."$</h2>
+                                                    <h2>".mysql_result($sel,$x,"price")." VND</h2>
 													<p>".mysql_result($sel,$x,"Name")."</p>
 													<a href='product-details.php?index=".mysql_result($sel,$x,"ID")."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Detail</a>
 												</div>

@@ -29,7 +29,7 @@
 								<div id ='d1' class='product-information'><!--/product-information-->
 									<h2>$name</h2>
 									<span>
-										<span>$$price</span>
+										<span>$price VND</span>
 										<button id='btaddtocart'  type='button' onclick='addtocart();' class='btn btn-fefault cart'>
 											<i class='fa fa-shopping-cart'></i>
 											Add to cart
