@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2015 at 03:03 PM
+-- Generation Time: Jun 23, 2015 at 10:00 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -89,20 +89,29 @@ CREATE TABLE IF NOT EXISTS `oder` (
   `Total` int(11) DEFAULT NULL,
   `user` varchar(15) NOT NULL,
   `ispay` bit(1) NOT NULL,
-  `sent` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `sent` tinyint(1) NOT NULL,
+  `realname` varchar(15) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `city` varchar(15) DEFAULT NULL,
+  `comment` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `oder`
 --
 
-INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`) VALUES
-(1, 15000, 'test', b'1', 0),
-(2, 25000, 'David', b'0', 0),
-(16, 56, 'test', b'0', 0),
-(17, 37, 'test', b'0', 0),
-(18, 56, 'test', b'0', 0),
-(19, 56, 'test', b'0', 0);
+INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`, `realname`, `email`, `phone`, `address`, `city`, `comment`) VALUES
+(1, 15000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(2, 25000, 'David', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(16, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(17, 37, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(18, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(19, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(20, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(21, 56, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, ''),
+(22, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,7 +143,12 @@ INSERT INTO `oder_list_item` (`ID_oder`, `ID_item`, `number`) VALUES
 (18, 1, 1),
 (19, 1, 1),
 (19, 11, 1),
-(19, 13, 1);
+(19, 13, 1),
+(20, 1, 1),
+(20, 7, 2),
+(21, 5, 3),
+(21, 6, 2),
+(22, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +219,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- Constraints for dumped tables
 --

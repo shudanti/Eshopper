@@ -98,7 +98,6 @@
                         
                             if(response.status == "success")
                             {
-                                alert("Add to cart!");
                                 document.getElementById("btaddtocart").innerHTML  = "In your cart";
                                 document.getElementById("btaddtocart").style.background='#c7eaf0';
                                 document.getElementById("btaddtocart").disabled = true;

@@ -59,6 +59,7 @@
                             ?>
 							<li><a href='checkout.php'><i class='fa fa-crosshairs'></i> Checkout</a></li>
 							<li><a href='cart.php'><i class='fa fa-shopping-cart'></i> Cart</a></li>
+                            <li><a href='history.php'><i class='fa fa-plus-square'></i> History</a></li>
 							<li><a href='forum.php'><i class='fa fa-folder-o'></i> Forum</a></li>
                             <?php
                             if ((isset($_SESSION['id_name'])) && (!empty($_SESSION['id_name'])))
@@ -97,7 +98,7 @@
 							<li class='dropdown'><a href='shop.php?cat=All&i=1'>Shop<i class='fa fa-angle-down'></i></a>
 								<ul role='menu' class='sub-menu'>
 									<li><a href='shop.php?cat=All&i=1'>Products</a></li>
-									<li><a href='product-details.php'>Product Details</a></li> 
+									
 									<li><a href='checkout.php'>Checkout</a></li> 
 									<li><a href='cart.php'>Cart</a></li> 
 								</ul>
