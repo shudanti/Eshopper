@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -170,4 +168,7 @@
 			</div>
 		</div>
 	</div><!--/header-bottom-->
+	<?php
+		include("config.php");
+	?>
 </header><!--/header-->

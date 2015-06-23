@@ -14,7 +14,6 @@
 						<h2 class='title text-center'>Features Items</h2>
 						<?php
 
-							include("config.php");
 							$cat = $_REQUEST["cat"];
 							if ($cat == "All")
 								$sel=mysql_query("select * from item");
