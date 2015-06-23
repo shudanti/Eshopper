@@ -15,12 +15,16 @@
 						<?php
 
 							$cat = $_REQUEST["cat"];
+							$s = $_REQUEST["s"];
 							if ($cat == NULL)
 								$cat = "ALL";
-							if ($cat == "All")
-								$sel=mysql_query("select * from item");
-							else
-								$sel=mysql_query("select * from item where category = '$cat'");
+							if ($s == NULL)
+								$s = "*";
+							if ($cat == 'category')
+								$sel=mysql_query("select * from item where category = '$s'");
+							else if ($cat == 'item')
+								$sel=mysql_query("select * from item where Name = '$s'");
+							
 							
 							$arrlength = mysql_numrows($sel);
 							$imax = 1;
@@ -70,20 +74,20 @@
                         {
                             if($ci==$i)
                             {
-                                echo "<li class='active'><a href='?cat=".$cat."&i=".$i."'>".$i."</a></li>";
+                                echo "<li class='active'><a href='?cat=$cat&s=$s&i=$i'>$i</a></li>";
                             } 
                             else
                             {
-                                echo "<li><a href='?cat=".$cat."&i=".$i."''>".$i."</a></li>";
+                                echo "<li><a href='?cat=$cat&s=$s&i=$i''>$i</a></li>";
                             }
                         }
                         if($ci >= $imax)
                         {
-                            echo "<li><a href='?cat=".$cat."&i=".$imax."''>&raquo;</a></li>";
+                            echo "<li><a href='?cat=$cat&s=$s&i=$imax''>&raquo;</a></li>";
                         }
                         else 
                         {
-                            echo "<li><a href='?cat=".$cat."&i=".($ci+1)."''>&raquo;</a></li>";
+                            echo "<li><a href='?cat=$cat&s=$s&i=".($ci+1)."''>&raquo;</a></li>";
                         }
                             
 						echo "</ul></div>";

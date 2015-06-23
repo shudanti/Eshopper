@@ -4,14 +4,15 @@
 		<div class='panel-group category-products' id='accordian'><!--category-product-->							
 			
 			<?php
-			include("config.php");
 				$sel = mysql_query("select * from category");
+				$name = $arr["Name"];
 				while($arr=mysql_fetch_array($sel))
 				{
+					$name = $arr["Name"];
 					echo "
 						<div class='panel panel-default'>
 							<div class='panel-heading'>
-								<h4 class='panel-title'><a href='shop.php?cat=".$arr["Name"]."&i=1'>".$arr["Name"]."</a></h4>
+								<h4 class='panel-title'><a href='shop.php?cat=$name&i=1'>$name</a></h4>
 							</div>
 						</div>
 					";	

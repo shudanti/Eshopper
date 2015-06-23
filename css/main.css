@@ -156,9 +156,6 @@ a#scrollUp i{
   border-radius: 0;
   color: #B4B1AB;
   font-size: 12px;
-  margin-right: 20px;
-  padding: 2px 15px;
-  margin-top: 10px;
 }
 
 .usa:hover {
@@ -251,7 +248,9 @@ a#scrollUp i{
 	background:none;
 	color:#fdb45e;
 }
-
+.search_box {
+width: 400;
+}
 .search_box input {
   background: #F0F0E9;
   border: medium none;
@@ -263,9 +262,6 @@ a#scrollUp i{
   outline: medium none;
   padding-left: 10px;
   width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
 }
 
 
