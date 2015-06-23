@@ -122,7 +122,7 @@
     {
         $id_c_oder = $_SESSION['id_current_oder'];
         $sel_check_item=mysql_query("select ID_item from oder_list_item where ID_oder = '$id_c_oder' and ID_item = '$i'");
-        echo $sel_check_item['ID_item'];
+        
         if(mysql_num_rows($sel_check_item)!=0)
         {
             echo "dsf";

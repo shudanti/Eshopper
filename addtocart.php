@@ -28,6 +28,11 @@
                 mysql_query("insert into oder_list_item VALUES ('$id_c_oder','$i',1)");
             }
         }
+        mysql_query("UPDATE oder,
+                (SELECT ID_oder, SUM(number*price ) as sum FROM oder_list_item, item WHERE ID_oder = '$id_c_oder' and ID_item = item.ID) as a 
+                set oder.Total = a.sum
+                WHERE oder.ID = 21");
+                
         header('Content-Type: application/json');
         $result = array("status"=>"success");
         echo json_encode($result);
