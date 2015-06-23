@@ -112,12 +112,13 @@
 							<form action = 'search.php' method = 'GET'>
 								<input type='text' placeholder='Search'/ name='s'>
 								<select name='cat' width='100' style='width: 100px; height: 35px;padding-top: 1px;'>
-									<option value=category>Category</option>		
 									<option value=item>Product</option>	
+                                    <option value=category>Category</option>		
+									
 								<select>
 								<input type='submit' class='btn btn-default usa' style = 'width: 60px'></input> <br>
-								<input type="radio" class ="radio-search" name="type" value="exact" checked>Exact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio" class ="radio-search"  name="type" value="any">Any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+								<input type="radio" class ="radio-search" name="type" value="exact" >Exact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" class ="radio-search"  name="type" value="any" checked>Any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
 								<input type="radio" class ="radio-search"  name="type" value="all">All
 							</form>	
 						</div>

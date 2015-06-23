@@ -11,7 +11,7 @@
             mysql_query("UPDATE oder,
                 (SELECT ID_oder, SUM(number*price ) as sum FROM oder_list_item, item WHERE ID_oder = '$id_c_oder' and ID_item = item.ID) as a 
                 set oder.Total = a.sum
-                WHERE oder.ID = 21");
+                WHERE oder.ID = $id_c_oder");
             header('Content-Type: application/json');
             $result = array("status"=>"success");
             echo json_encode($result);
@@ -30,7 +30,7 @@
             mysql_query("UPDATE oder,
                 (SELECT ID_oder, SUM(number*price ) as sum FROM oder_list_item, item WHERE ID_oder = '$id_c_oder' and ID_item = item.ID) as a 
                 set oder.Total = a.sum
-                WHERE oder.ID = 21");
+                WHERE oder.ID = $id_c_oder");
             header('Content-Type: application/json');
             $result = array("status"=>"success");
             echo json_encode($result);
@@ -45,6 +45,22 @@
     else if($type == "delete")
     {
         if(mysql_query("DELETE from oder_list_item where ID_oder = '$id_c_oder' and ID_item ='$id' "))
+        {
+            header('Content-Type: application/json');
+            $result = array("status"=>"success");
+            echo json_encode($result);
+        }
+        else
+        {
+            header('Content-Type: application/json');
+            $result = array("status"=>"false");
+            echo json_encode($result);
+        }
+    }
+    else if($type == "delete_oder")
+    {
+        $oder = $_POST["id_oder"];
+        if(mysql_query("DELETE from oder_list_item where ID_oder = '$oder' and ID_item ='$id' "))
         {
             header('Content-Type: application/json');
             $result = array("status"=>"success");

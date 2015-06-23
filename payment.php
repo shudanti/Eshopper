@@ -10,8 +10,10 @@
         $email = $_POST['oder_email'];
         $address = $_POST['oder_address'];
         $city = $_POST['oder_city'];
+        date_default_timezone_set('UTC');
+        $time = date(DATE_RFC2822);
         $comment = $_POST['oder_comment'];
-        mysql_query("update oder set realname = N'$realname'and email=$email and phone=$phone and address=N'$address' and city=N'$phone' and comment=N'$comment' where ID = '$id_c_oder'");
+        mysql_query("update oder set oder.realname = N'$realname', time = '$time' , oder.email = N'$email' , oder.phone = '$phone' , oder.address = N'$address' , oder.city = '$phone' , oder.comment = N'$comment' where oder.ID = '$id_c_oder'");
         $sel_oder=mysql_query("select * from oder where ID = '$id_c_oder'");
         if(mysql_num_rows($sel_oder)!=0)
         {
