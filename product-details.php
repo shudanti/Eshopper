@@ -18,6 +18,7 @@
 							$name = mysql_result($sel,0,"Name");
 							$price = mysql_result($sel,0,"price");
 							$detail = mysql_result($sel,0,"Detail");
+                            
 							echo("
 							<div class='col-sm-5'>
 								<div class='view-product'>
@@ -25,14 +26,15 @@
 								</div>
 							</div>
 							<div class='col-sm-7'>
-								<div class='product-information'><!--/product-information-->
+								<div id ='d1' class='product-information'><!--/product-information-->
 									<h2>$name</h2>
 									<span>
 										<span>$$price</span>
-										<button type='button' class='btn btn-fefault cart'>
+										<button id='btaddtocart'  type='button' onclick='addtocart();' class='btn btn-fefault cart'>
 											<i class='fa fa-shopping-cart'></i>
 											Add to cart
 										</button><br>
+                                        
 										<a target=\"_blank\" href=\"https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)\" ><img src=\"https://www.nganluong.vn/data/images/buttons/11.gif\"  border=\"0\" /></a> 
 									</span>
 								</div><!--/product-information-->
@@ -69,6 +71,69 @@
 		</div>
 	</section>
 </body>
+<script type='text/javascript'>
+    function addtocart() {
+        var xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState===4 && xmlhttp.status===200)
+            {
+                alert(xmlhttp.responseText);
+    
+            }
+        }
+        <?php
+            //echo "xmlhttp.open('GET','addtocart.php?i=".$i."',true);";
+            //echo "top.location='addtocart.php?i=".$i."';";
+            echo "var  formData = 'i='+".$i.";";
+            
+        ?>
+            $.ajax({
+                    url : "addtocart.php",
+                    type: 'POST',
+                    data : formData,
+                    success: function(response)
+                    {
+                        
+                            if(response.status == "success")
+                            {
+                                alert("Add to cart!");
+                                document.getElementById("btaddtocart").innerHTML  = "In your cart";
+                                document.getElementById("btaddtocart").style.background='#c7eaf0';
+                                document.getElementById("btaddtocart").disabled = true;
+                            }
+                            else
+                            {
+                                top.window.location = "login.php";
+                            }
+                       
+                    }
+                });
+        
+        
+        return false;
+    }
+</script>
+
+
 <?php
+    if ((isset($_SESSION['id_current_oder'])) && (!empty($_SESSION['id_current_oder'])))
+    {
+        $id_c_oder = $_SESSION['id_current_oder'];
+        $sel_check_item=mysql_query("select ID_item from oder_list_item where ID_oder = '$id_c_oder' and ID_item = '$i'");
+        echo $sel_check_item['ID_item'];
+        if(mysql_num_rows($sel_check_item)!=0)
+        {
+            echo "dsf";
+            echo "<script type='text/javascript'>
+                document.getElementById('btaddtocart').innerHTML  = 'In your cart';
+                document.getElementById('btaddtocart').style.background='#c7eaf0';
+                document.getElementById('btaddtocart').disabled = true;
+            </script>";
+        }
+        
+        
+    }
    include("footer.php");
 ?>

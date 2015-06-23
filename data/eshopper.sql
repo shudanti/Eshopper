@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2015 at 07:30 AM
+-- Generation Time: Jun 23, 2015 at 03:03 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `image` varchar(100) DEFAULT NULL,
   `category` text NOT NULL,
   `Detail` varchar(1000) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `item`
@@ -81,11 +81,69 @@ INSERT INTO `item` (`ID`, `Name`, `price`, `image`, `category`, `Detail`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `oder`
+--
+
+CREATE TABLE IF NOT EXISTS `oder` (
+  `ID` int(11) NOT NULL,
+  `Total` int(11) DEFAULT NULL,
+  `user` varchar(15) NOT NULL,
+  `ispay` bit(1) NOT NULL,
+  `sent` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oder`
+--
+
+INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`) VALUES
+(1, 15000, 'test', b'1', 0),
+(2, 25000, 'David', b'0', 0),
+(16, 56, 'test', b'0', 0),
+(17, 37, 'test', b'0', 0),
+(18, 56, 'test', b'0', 0),
+(19, 56, 'test', b'0', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oder_list_item`
+--
+
+CREATE TABLE IF NOT EXISTS `oder_list_item` (
+  `ID_oder` int(11) NOT NULL,
+  `ID_item` int(11) NOT NULL,
+  `number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oder_list_item`
+--
+
+INSERT INTO `oder_list_item` (`ID_oder`, `ID_item`, `number`) VALUES
+(1, 2, 1),
+(1, 14, 2),
+(16, 1, 1),
+(16, 3, 1),
+(16, 5, 1),
+(17, 3, 1),
+(17, 6, 1),
+(17, 12, 1),
+(17, 14, 1),
+(17, 15, 1),
+(18, 1, 1),
+(19, 1, 1),
+(19, 11, 1),
+(19, 13, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `name` varchar(45) NOT NULL,
+  `name` varchar(15) NOT NULL,
   `password` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
@@ -100,9 +158,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`name`, `password`, `email`, `phone`, `address`, `city`, `realname`) VALUES
 ('das', 'asdasd', 'da@dd', '096512425', '123 Quận 1', 'TP.HCM', NULL),
-('David', '1234', 'shudanti@gmail.com', '0962154721', '32 Quận 5', 'TP.HCM', NULL),
-('s', 'a', 'mrsa@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', 'TP.HCM', 'Shion'),
+('David', '1234', 'shu@gmail.com', '0962154721', '32 Quận 5', 'TP.HCM', NULL),
 ('sada', '123', 'sdf@sdfdd', '', '', NULL, NULL),
+('test', 'a', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', 'TP.HCM', 'Shion'),
 ('Vern', '1234', 's123@gmail.com', '', '', NULL, NULL);
 
 --
@@ -110,10 +168,28 @@ INSERT INTO `users` (`name`, `password`, `email`, `phone`, `address`, `city`, `r
 --
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `oder`
+--
+ALTER TABLE `oder`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `oder_list_item`
+--
+ALTER TABLE `oder_list_item`
+  ADD PRIMARY KEY (`ID_oder`,`ID_item`), ADD KEY `ID_item` (`ID_item`);
 
 --
 -- Indexes for table `users`
@@ -126,10 +202,21 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `item`
+-- AUTO_INCREMENT for table `oder`
 --
-ALTER TABLE `item`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+ALTER TABLE `oder`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `oder_list_item`
+--
+ALTER TABLE `oder_list_item`
+ADD CONSTRAINT `oder_list_item_ibfk_1` FOREIGN KEY (`ID_oder`) REFERENCES `oder` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `oder_list_item_ibfk_2` FOREIGN KEY (`ID_item`) REFERENCES `item` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
