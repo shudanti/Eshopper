@@ -21,9 +21,9 @@
 							if ($s == NULL)
 								$s = "*";
 							if ($cat == 'category')
-								$sel=mysql_query("select * from item where category = '$s'");
+								$sel=mysql_query("select * from item where category like '%$s%'");
 							else if ($cat == 'item')
-								$sel=mysql_query("select * from item where Name = '$s'");
+								$sel=mysql_query("select * from item where Name like '%$s%'");
 							
 							
 							$arrlength = mysql_numrows($sel);

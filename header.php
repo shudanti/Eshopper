@@ -115,6 +115,9 @@
 									<option value=item>Product</option>	
 								<select>
 								<input type='submit' class='btn btn-default usa' style = 'width: 60px'></input>
+								<input type="radio" name="type" value="exact">Exact
+								<input type="radio" name="type" value="any">Any
+								<input type="radio" name="type" value="all">All
 							</form>	
 						</div>
 				</div>
