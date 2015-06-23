@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2015 at 10:00 PM
+-- Generation Time: Jun 23, 2015 at 10:55 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -29,15 +29,15 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `category` (
   `ID` int(11) NOT NULL,
   `Name` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`ID`, `Name`) VALUES
-(1, 'Samsung'),
 (2, 'Apple'),
+(1, 'Samsung'),
 (3, 'Sony');
 
 -- --------------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `Name` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
-  `category` text NOT NULL,
+  `category` varchar(15) NOT NULL,
   `Detail` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -87,7 +87,7 @@ INSERT INTO `item` (`ID`, `Name`, `price`, `image`, `category`, `Detail`) VALUES
 CREATE TABLE IF NOT EXISTS `oder` (
   `ID` int(11) NOT NULL,
   `Total` int(11) DEFAULT NULL,
-  `user` varchar(15) NOT NULL,
+  `user` varchar(15) CHARACTER SET utf8 NOT NULL,
   `ispay` bit(1) NOT NULL,
   `sent` tinyint(1) NOT NULL,
   `realname` varchar(15) DEFAULT NULL,
@@ -185,13 +185,13 @@ INSERT INTO `users` (`name`, `password`, `email`, `phone`, `address`, `city`, `r
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`Name`);
 
 --
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`), ADD KEY `category` (`category`);
 
 --
 -- Indexes for table `oder`
@@ -209,7 +209,7 @@ ALTER TABLE `oder_list_item`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`name`);
+  ADD PRIMARY KEY (`name`), ADD KEY `name` (`name`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -223,6 +223,12 @@ ALTER TABLE `oder`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `item`
+--
+ALTER TABLE `item`
+ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`Name`);
 
 --
 -- Constraints for table `oder_list_item`
