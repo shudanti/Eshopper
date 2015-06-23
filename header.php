@@ -114,10 +114,10 @@
 									<option value=category>Category</option>		
 									<option value=item>Product</option>	
 								<select>
-								<input type='submit' class='btn btn-default usa' style = 'width: 60px'></input>
-								<input type="radio" name="type" value="exact">Exact
-								<input type="radio" name="type" value="any">Any
-								<input type="radio" name="type" value="all">All
+								<input type='submit' class='btn btn-default usa' style = 'width: 60px'></input> <br>
+								<input type="radio" class ="radio-search" name="type" value="exact" checked>Exact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" class ="radio-search"  name="type" value="any">Any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+								<input type="radio" class ="radio-search"  name="type" value="all">All
 							</form>	
 						</div>
 				</div>

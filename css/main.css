@@ -263,7 +263,18 @@ width: 400;
   padding-left: 10px;
   width: 155px;
 }
-
+.search_box .radio-search {
+  background: #F0F0E9;
+  border: medium none;
+  color: #B2B2B2;
+  font-family: 'roboto';
+  font-size: 12px;
+  font-weight: 300;
+  height: 15px;
+  outline: medium none;
+  padding-left: 10px;
+  width: 30px;
+}
 
 /*  Dropdown menu*/
 

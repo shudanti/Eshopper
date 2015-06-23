@@ -13,18 +13,48 @@
 					<div class='features_items'><!--features_items-->
 						<h2 class='title text-center'>Features Items</h2>
 						<?php
-
 							$cat = $_REQUEST["cat"];
 							$s = $_REQUEST["s"];
+							$type = $_REQUEST["type"];
 							if ($cat == NULL)
 								$cat = "ALL";
 							if ($s == NULL)
 								$s = "*";
-							if ($cat == 'category')
-								$sel=mysql_query("select * from item where category like '%$s%'");
-							else if ($cat == 'item')
-								$sel=mysql_query("select * from item where Name like '%$s%'");
-							
+							if (strcmp($type,"exact") == 0)
+							{
+								if ($cat == 'category')
+									$sel=mysql_query("select * from item where category like '%$s%'");
+								else if ($cat == 'item')
+									$sel=mysql_query("select * from item where Name like '%$s%'");
+							}
+							else if (strcmp($type,"any") == 0)
+							{
+								$array = explode(" ", $s);
+								$query = "select * from item where ";
+								
+								if ($cat == 'item')
+									foreach ($array as $value)
+										$query = $query . "Name like '%$value%' or ";	
+								else if($cat == 'category')
+									foreach ($array as $value)
+										$query = $query . "category like '%$value%' or ";
+								$query = rtrim($query, "or ");
+								$sel=mysql_query($query);	
+							}
+							else if (strcmp($type,"all") == 0)
+							{
+								$array = explode(" ", $s);
+								$query = "select * from item where ";
+								
+								if ($cat == 'item')
+									foreach ($array as $value)
+										$query = $query . "Name like '%$value%' and ";	
+								else if($cat == 'category')
+									foreach ($array as $value)
+										$query = $query . "category like '%$value%' and ";
+								$query = rtrim($query, "and ");
+								$sel=mysql_query($query);	
+							}
 							
 							$arrlength = mysql_numrows($sel);
 							$imax = 1;
@@ -37,8 +67,10 @@
 								$imax = ($arrlength - $arrlength%12)/12 + 1;
 							}
 							$ci = $_REQUEST["i"];
-							if ($ci == NULL)
+							if ((!isset($_REQUEST['i'])) || (empty($_REQUEST['i'])))
+                            {
 								$ci = 1;
+							}
 							for($x = ($ci-1)*9 ; $x < $arrlength and $x < $ci*9; $x++) {
 								echo "
 							   <div class='col-sm-4'>
@@ -74,20 +106,20 @@
                         {
                             if($ci==$i)
                             {
-                                echo "<li class='active'><a href='?cat=$cat&s=$s&i=$i'>$i</a></li>";
+                                echo "<li class='active'><a href='?cat=$cat&type=$type&s=$s&i=$i'>$i</a></li>";
                             } 
                             else
                             {
-                                echo "<li><a href='?cat=$cat&s=$s&i=$i''>$i</a></li>";
+                                echo "<li><a href='?cat=$cat&type=$type&s=$s&i=$i''>$i</a></li>";
                             }
                         }
                         if($ci >= $imax)
                         {
-                            echo "<li><a href='?cat=$cat&s=$s&i=$imax''>&raquo;</a></li>";
+                            echo "<li><a href='?cat=$cat&type=$type&s=$s&i=$imax''>&raquo;</a></li>";
                         }
                         else 
                         {
-                            echo "<li><a href='?cat=$cat&s=$s&i=".($ci+1)."''>&raquo;</a></li>";
+                            echo "<li><a href='?cat=$cat&type=$type&s=$s&i=".($ci+1)."''>&raquo;</a></li>";
                         }
                             
 						echo "</ul></div>";
