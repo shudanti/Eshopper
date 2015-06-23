@@ -1,3 +1,12 @@
+<header>
+	<?php
+		session_start();
+		if ((isset($_SESSION['id_name'])) && (!empty($_SESSION['id_name'])))
+		{ 
+			header( "Location: pages/index.php" );
+		}
+	?>
+</header>
 <?php
 include("config.php");
 $r_name=$_REQUEST['r_name'];
@@ -33,7 +42,7 @@ if(isset($_POST['btsubmit']))
 $sel=mysql_query("select * from users where name = N'$name' and password = '$password' ");
 $arr=mysql_fetch_array($sel);
 
-if($arr['name']==$name)
+if($arr != NULL) 
   {
         session_start();
         $_SESSION['id_name'] = $arr['name'];
@@ -103,11 +112,4 @@ else
 	
 	
 
-  
-    <script src='js/jquery.js'></script>
-	<script src='js/price-range.js'></script>
-    <script src='js/jquery.scrollUp.min.js'></script>
-	<script src='js/bootstrap.min.js'></script>
-    <script src='js/jquery.prettyPhoto.js'></script>
-    <script src='js/main.js'></script>
 </body>

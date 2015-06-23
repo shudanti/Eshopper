@@ -26,6 +26,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </script>
 </head>
 <body>
+<?php
+if(isset($_POST['name']))
+{
+	include("../config.php");
+	$name=$_REQUEST['name'];
+	$password=$_REQUEST['password'];
+	$sel=mysql_query("select * from admin where name = N'$name' and password = '$password' ");
+	$arr=mysql_fetch_array($sel);
+	if($arr!=NULL)
+	  {
+		session_start();
+		$_SESSION['id_name'] = $arr['name'];
+		echo "<script>alert('Users login successfully')</script>";
+		header( "Location: pages/index.php" );
+		exit;
+	 }
+	else 
+	{
+		echo "<script>alert('Login failed')</script>";
+	}
+}
+?>
 <!-- contact-form -->	
 <div class="message warning">
 <div class="inset">
@@ -33,17 +55,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>Login Form</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form>
+		<form action='#' method="post">
 			<li>
-				<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input name= "name" type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input name = "password" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="Sign in" >
+				<input name ="submit" type="submit" onclick="myFunction()" value="Sign in" >
 				<h4><a href="#">Lost your Password ?</a></h4>
 						  <div class="clear">  </div>	
 			</div>
@@ -55,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="clear"> </div>
 <!--- footer --->
 <div class="footer">
-	<p>Template by <a href="http://w3layouts.com">w3layouts</a></p>
+	
 </div>
 </body>
 </html>
