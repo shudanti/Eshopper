@@ -34,7 +34,7 @@
                         echo "<div class='register-req'>
             				<p>Please choose the payment method: </p>
             			</div><!--/register-req-->";
-                        echo "<a target='_blank' href='https://www.nganluong.vn/button_payment.php?receiver=shudanti@gmail.com&product_name=$id_c_oder&price=$sum&return_url='payment.php?pay=false&id_oder=$id_c_oder'&comments=$comment' ><img src='https://www.nganluong.vn/data/images/buttons/11.gif'  border='0' /></a>";
+                        echo "<a target='_blank' href='https://www.nganluong.vn/button_payment.php?receiver=shudanti@gmail.com&product_name=$id_c_oder&price=$sum&return_url='hoangtuhatde.esy.es/payment.php?pay=false&id_oder=$id_c_oder'&comments=$comment' ><img src='https://www.nganluong.vn/data/images/buttons/11.gif'  border='0' /></a>";
     				}
                     else if($pay == "true")
                     {
