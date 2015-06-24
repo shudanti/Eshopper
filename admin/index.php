@@ -48,6 +48,34 @@ if(isset($_POST['name']))
 	}
 }
 ?>
+<script>
+function vali()
+{
+	var nam=/^[a-zA-Z]{3,15}$/;
+	
+	var pass=/^[a-zA-Z0-9-_]{3,16}$/;
+	
+
+	if(document.formadmin.name.value.search(nam)==-1)
+	{
+		alert("Name has no special character, 3-15 character");
+		document.formadmin.name.focus();
+		return false;
+	}
+
+	else if(document.formadmin.password.value.search(pass)==-1)
+	{
+		alert("enter correct password");
+		document.formadmin.password.focus();
+		return false;
+	}
+	
+	else 
+	{
+		return true;
+	}
+}
+</script>
 <!-- contact-form -->	
 <div class="message warning">
 <div class="inset">
@@ -55,7 +83,7 @@ if(isset($_POST['name']))
 		<h1>Login Form</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form action='#' method="post">
+		<form name='formadmin' action='#' method="post" onSubmit='return vali()' >
 			<li>
 				<input name= "name" type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>

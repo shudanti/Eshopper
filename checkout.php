@@ -10,6 +10,57 @@
     
     $id_c_oder = $_SESSION['id_current_oder'];
 ?>
+<script>
+
+function vali()
+{
+	var nam=/^[a-zA-Z]{4,15}$/;
+	var email=/^[a-zA-Z0-9-_\.]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
+	var pass=/^[a-zA-Z0-9-_]{6,16}$/;
+	var phn=/^[0-9]{9,14}$/;
+	var add=/^[a-zA-Z0-9 ]{5,150}$/;
+	var rel=/^[a-zA-Z ]{2,45}$/;
+	var city=/^[a-zA-Z]{2,30}$/;
+
+	if(document.formcheck.oder_email.value.search(email)==-1)
+	{
+		alert("enter correct email");
+		document.formcheck.oder_email.focus();
+		return false;
+	}
+
+	
+	else if(document.formcheck.oder_realname.value.search(rel)==-1)
+	{
+		alert("enter correct real name");
+		document.formcheck.oder_realname.focus();
+		return false;
+	}
+	
+	else if(document.formcheck.oder_phone.value.search(phn)==-1)
+	{
+		alert("enter correct phone");
+		document.formcheck.oder_phone.focus();
+		return false;
+	}
+	else if(document.formcheck.oder_address.value.search(add)==-1)
+	{
+		alert("enter correct address");
+		document.formcheck.oder_address.focus();
+		return false;
+	}
+	else if(document.formcheck.oder_city.value.search(city)==-1)
+	{
+		alert("enter correct city");
+		document.formcheck.oder_city.focus();
+		return false;
+	}
+	else 
+	{
+		return true;
+	}
+}
+</script>
 <body>
 	<section id='cart_items'>
 		<div class='container'>
@@ -27,7 +78,7 @@
 			<div class='shopper-informations'>
 				<div class='row'>
                 <?php
-                    echo "<form id='payform' method='post' action='payment.php?pay=false&id_oder=$id_c_oder'>";
+                    echo "<form name ='formcheck' id='payform' onSubmit='return vali()' method='post' action='payment.php?pay=false&id_oder=$id_c_oder'>";
                 ?>
 					<div class='col-sm-3'>
 						<div class='shopper-info'>
@@ -65,9 +116,9 @@
 							<div class='form-one'>
 								
                                 <?php
-									echo "<input name='oder_realname' type='text' placeholder='Real Name' value='$realname'>
+									echo "<input name='oder_realname' type='text' placeholder='Real Name*' value='$realname'>
 									<input name='oder_email' type='text' placeholder='Email*' value='$email'>
-									<input name='oder_phone' type='text' placeholder='Phone' value='$phone'>";
+									<input name='oder_phone' type='text' placeholder='Phone* (9-14 number)' value='$phone'>";
 								?>	
 								
 							</div>
@@ -75,7 +126,7 @@
 								
 									<?php
                                         echo"<input name='oder_address' type='text' placeholder='Address*' value='$address'>
-    									       <input name='oder_city' type='text' placeholder='City' value='$city'>";
+    									       <input name='oder_city' type='text' placeholder='City*' value='$city'>";
 									?>
 								
 							</div>
