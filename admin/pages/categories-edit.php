@@ -33,7 +33,7 @@
 						<td>$id</td>
 						<td>$name</td>
 						<td><a href='categories-editform.php?id=$id'>Edit</a></td>
-						<td><a href='action.php?p=$p&a=remove&t=Category&id=$id'>Remove</a></td>
+						<td><a href='action.php?p=$p&a=remove&t=category&id=$id'>Remove</a></td>
 					</tr>
 				</thead>
 				";	
