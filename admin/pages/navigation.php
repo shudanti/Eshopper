@@ -28,6 +28,18 @@
 					</ul>
 					<!-- /.nav-second-level -->
 				</li>
+				<li>
+					<a href="#"><i class="fa fa-files-o fa-fw"></i> Products<span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level">
+						<li>
+							<a href="products-edit.php">Edit</a>
+						</li>
+						<li>
+							<a href="products-add.php">Add</a>
+						</li>
+					</ul>
+					<!-- /.nav-second-level -->
+				</li>
 			</ul>
 		</div>
 		<!-- /.sidebar-collapse -->
