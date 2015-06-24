@@ -22,7 +22,7 @@ $arr=mysql_fetch_array($sel);
 
 if($arr['name']!=$r_name)
   {
-   if(mysql_query("insert into users values(N'$r_name',N'$r_password',N'$r_email')"))
+   if(mysql_query("insert into users(name, password, email) values(N'$r_name',N'$r_password',N'$r_email')"))
 	   {  
 	       echo "<script>alert('New users created successfully')</script>";
 	   }
@@ -58,7 +58,7 @@ if($arr != NULL)
 	 }
 else 
 {
-	echo "Login false";
+    echo "<script>alert('Login false')</script>";
 }
 
 }

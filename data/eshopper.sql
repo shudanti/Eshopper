@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2015 at 01:14 AM
+-- Generation Time: Jun 24, 2015 at 03:00 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `category` (
 --
 
 INSERT INTO `category` (`ID`, `Name`) VALUES
-(1, 'Samsung'),
-(2, 'Apple'),
-(3, 'Sony');
+(1, 'Young'),
+(2, 'Summer dress'),
+(3, 'Winter dress');
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 
 INSERT INTO `item` (`ID`, `Name`, `price`, `image`, `category`, `Detail`) VALUES
-(1, 'Easy Polo Black Edition', 56000, 'images/shop/product1.jpg', 1, 'Điện thoại thần thánh đến từ Samsung'),
+(1, 'Easy Polo Black Edition', 56000, 'images/shop/product1.jpg', 1, 'Screw basic black! By Charles Manning'),
 (2, 'Easy-Care Stretch Poplin Shirt', 52000, 'images/shop/product2.jpg', 1, ''),
 (3, 'Top Flite Mens Polo Style Shirt ', 40000, 'images/shop/product3.jpg', 2, ''),
 (4, 'U.S. Polo Assn. Baby-Boys', 70000, 'images/shop/product4.jpg', 1, ''),
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `oder` (
   `city` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `comment` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
   `time` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `oder`
@@ -130,13 +130,14 @@ INSERT INTO `oder` (`ID`, `Total`, `user`, `ispay`, `sent`, `realname`, `email`,
 (18, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
 (19, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
 (20, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
-(21, 56000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
+(21, 128000, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, '', ''),
 (22, 56, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL, ''),
 (23, 361, 'test', b'1', 0, NULL, NULL, NULL, NULL, NULL, NULL, ''),
 (24, 150, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', 'gui tan nha', ''),
 (25, 496, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', '', 'Tue, 23 Jun 2015 22:30:30 +0000'),
 (26, 119, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', '', 'Tue, 23 Jun 2015 22:31:04 +0000'),
-(27, 56000, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL, '');
+(27, 56000, 'test', b'0', 0, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+(28, 128000, 'test', b'1', 0, 'Shion', 'shudanti@gmail.com', '0945184265', '134 Nguyễn Du Quận 6', '0945184265', '', 'Tue, 23 Jun 2015 23:50:22 +0000');
 
 -- --------------------------------------------------------
 
@@ -161,7 +162,9 @@ INSERT INTO `oder_list_item` (`ID_oder`, `ID_item`, `number`) VALUES
 (25, 12, 2),
 (26, 5, 1),
 (26, 7, 1),
-(27, 1, 1);
+(27, 1, 1),
+(28, 1, 1),
+(28, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -184,6 +187,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`name`, `password`, `email`, `phone`, `address`, `city`, `realname`) VALUES
+('admin', '1234', 'admin@gmail.com', NULL, NULL, NULL, NULL),
 ('das', 'asdasd', 'da@dd', '096512425', '123 Quận 1', 'TP.HCM', NULL),
 ('David', '1234', 'shu@gmail.com', '0962154721', '32 Quận 5', 'TP.HCM', NULL),
 ('sada', '123', 'sdf@sdfdd', '', '', NULL, NULL),
@@ -238,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `oder`
 --
 ALTER TABLE `oder`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- Constraints for dumped tables
 --

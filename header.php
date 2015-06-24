@@ -98,7 +98,7 @@
 							<li class='dropdown'><a href='shop.php?cat=All&i=1'>Shop<i class='fa fa-angle-down'></i></a>
 								<ul role='menu' class='sub-menu'>
 									<li><a href='shop.php?cat=All&i=1'>Products</a></li>
-									
+									<li><a href='help.php'>Help</a></li>
 									<li><a href='checkout.php'>Checkout</a></li> 
 									<li><a href='cart.php'>Cart</a></li> 
 								</ul>

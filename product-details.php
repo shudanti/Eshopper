@@ -35,7 +35,6 @@
 											Add to cart
 										</button><br>
                                         
-										<a target=\"_blank\" href=\"https://www.nganluong.vn/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)\" ><img src=\"https://www.nganluong.vn/data/images/buttons/11.gif\"  border=\"0\" /></a> 
 									</span>
 								</div><!--/product-information-->
 							</div>
